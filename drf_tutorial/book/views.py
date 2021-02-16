@@ -1,13 +1,19 @@
 from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
+from rest_framework.throttling import UserRateThrottle
 
 from .serializer import Book
-from rest_framework import status, generics, viewsets
+from rest_framework import status, generics, viewsets, throttling
 from .serializer import BookSerializer
 from .models import Book
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from .filters import BookFilter
+
+import random
+class RandomRateThrottle(throttling.BaseThrottle):
+    def allow_request(self, request, view):
+        return random.randint(1, 10) != 1
 # Create your views here.
 
 
