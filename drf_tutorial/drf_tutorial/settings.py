@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# print(BASE_DIR)  D:\python_workspace\pythonTool\drf_tutorial 项目所在目录
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -25,12 +26,41 @@ SECRET_KEY = 'a3j1b$iw^=vu6&zr0sq2^ur8_2ma8ge8)h-7qj^#v=qm4862p%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+# ALLOWED_HOSTS规定允许通过啥样的域名或者ip来访问django项目
+ALLOWED_HOSTS = ['192.168.249.128', 'www.drf.com','127.0.0.1']
+
+
+# CORS组的配置信息
+# CORS_ALLOWED_ORIGINS  = ["http://pc.drf.com","https://www.bilibili.com"]
+CORS_ALLOW_CREDENTIALS = True
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+    'VIEW',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
 
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,9 +72,12 @@ INSTALLED_APPS = [
     'django_filters',
     'course.apps.CourseConfig',
     'book',
+    'apps.testapp',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # 尽可能放在最前面
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,7 +112,7 @@ WSGI_APPLICATION = 'drf_tutorial.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+DATABASES_win = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -87,6 +120,25 @@ DATABASES = {
 }
 
 
+DATABASES_linux = {
+
+    "default":
+        {"ENGINE": "django.db.backends.mysql",
+         "HOST": "192.168.1.5",
+         "PORT": 3306,
+         "USER": "root",
+         "PASSWORD": "arvin",
+         "NAME": "drf_tutorial"}
+        # 'OPTIONS': {
+        #     'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        #     'charset': 'utf8mb4'}
+
+}
+DATABASES=None
+if platform.system()== 'Windows':
+    DATABASES = DATABASES_win
+elif platform.system()== 'Linux':
+    DATABASES = DATABASES_linux
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -123,12 +175,25 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+# 访问静态文件时候的URL前缀
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")  # 部署时静态文件收集目录  python manage.py collectstatic
+
+# 简单说就是开发中，通用的静态文件存放位置
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
 ]
+"""
+STATICFILES_DIRS  作用
+静态文件的一般安放位置有两种:
+
+一种就是在每个app里面新建一个static文件夹,将静态文件放到里面,在加载静态文件时,比如要在模板中用到静态文件,django会自动在每个app里面搜索static文件夹(所以,不要把文件夹的名字写错, 否则django就找不到你的文件夹了)
+另一种,就是在所有的app文件外面,建立一个公共的文件夹,
+因为有些静态文件不是某个app独有的,那么就可以把它放到一个公共文件夹里面,方便管理(注意,建立一个公共的静态文件的文件夹只是一种易于管理的做法,但是不是必须的,app是可以跨app应用静态文件的,因为最后所有的静态文件都会在STATIC_ROOT里面存在)
+那现在的问题是如何让django知道你把一些静态文件放到app以外的公共文件夹中呢,那就需要配置STATICFILES_DIRS了
+
+"""
 
 
 REST_FRAMEWORK = {

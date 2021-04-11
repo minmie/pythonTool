@@ -27,7 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("course/", include("course.urls")),
     path("docs/", include_docs_urls(title="DRF API文档", description="drf练习")),
-    path("book", include("book.urls")),
+    path("book/", include("book.urls")),
+    path("test/", include("apps.testapp.urls")),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

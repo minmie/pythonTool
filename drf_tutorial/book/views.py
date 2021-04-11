@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from rest_framework.pagination import LimitOffsetPagination, PageNumberPagination
 from rest_framework.throttling import UserRateThrottle
@@ -15,6 +16,7 @@ class RandomRateThrottle(throttling.BaseThrottle):
     def allow_request(self, request, view):
         return random.randint(1, 10) != 1
 # Create your views here.
+
 
 
 
@@ -37,5 +39,5 @@ class BookViewSet(viewsets.ModelViewSet):
     ordering_fields = ['price']  #  http://127.0.0.1:8000/book?ordering=-price
     ordering = ['price']  # 如果设置了这个字段，这个字段是默认排序
 
-    LimitOffsetPagination
-    PageNumberPagination
+    # LimitOffsetPagination
+    # PageNumberPagination
