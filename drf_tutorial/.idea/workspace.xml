@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9ac35b9-9bd2-4548-a9c9-da3f3eb30ab7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/drf_tutorial.iml" afterPath="$PROJECT_DIR$/.idea/drf_tutorial.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/book/urls.py" afterPath="$PROJECT_DIR$/book/urls.py" />
-      <change beforePath="$PROJECT_DIR$/book/views.py" afterPath="$PROJECT_DIR$/book/views.py" />
-      <change beforePath="$PROJECT_DIR$/drf_tutorial/__init__.py" afterPath="$PROJECT_DIR$/drf_tutorial/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/drf_tutorial/settings.py" afterPath="$PROJECT_DIR$/drf_tutorial/settings.py" />
-      <change beforePath="$PROJECT_DIR$/drf_tutorial/urls.py" afterPath="$PROJECT_DIR$/drf_tutorial/urls.py" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change beforePath="$PROJECT_DIR$/uwsgi.ini" afterPath="$PROJECT_DIR$/uwsgi.ini" />
-      <change beforePath="$PROJECT_DIR$/../tool/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../tool/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a9ac35b9-9bd2-4548-a9c9-da3f3eb30ab7" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,8 +70,8 @@
       <file leaf-file-name="nginx.conf.drf_tutorial" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nginx.conf.drf_tutorial">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1170">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="63" column="12" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -672,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nginx.conf.drf_tutorial">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1170">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="63" column="12" lean-forward="true" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-1.12.4.js"></script>>
+    <script >
+        $(document).ready(function() {
+            $('.submit-btn').click(function(){
+                    $.ajax({
+                    url: 'http://www.drf.com/test/hello3/',
+                    type: 'get',
+                    dataType: "json",
+                    data: {
+                    },
+                    success: function (res) {
+                        console.log('成功11');
+                            $('.b1').text(res.num)
+                    },
+                    error: function () {
+                        alert('服务器超时')
+                    }
+
+                })
+});
+
+
+        $('.btn2').click(function () {
+            console.log('按钮2点击')
+        })
+        })
+
+    </script>
+
+</head>
+<body>
+<div class="submit-btn">发送请求</div>
+<div class="b1">*****</div>
+
+<div>前后端分离跨域测试</div>
+
+
+<button class="btn2" type="button">按钮2</button>
+</body>
+</html>
