@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['192.168.249.128', 'www.drf.com','127.0.0.1']
 
 
 # CORS组的配置信息
-CORS_ALLOWED_ORIGINS  = ["http://pc.drf.com","https://www.bilibili.com"]
+# CORS_ALLOWED_ORIGINS  = ["http://pc.drf.com","https://www.bilibili.com"]
 CORS_ALLOW_CREDENTIALS = True
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_METHODS = (
